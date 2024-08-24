@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package random_number_service;
+
+import "google/api/annotations.proto";
+import "google/api/http.proto";
+
+service RandomNumberService {
+    rpc GetRandom (Request) returns (Response) {
+        option (google.api.http) = {
+            get: "/v1/get_random"
+        };
+    }
+
+    rpc GetMax (Request) returns (Response) {
+        option (google.api.http) = {
+            get: "/v1/get_max"
+        };
+    }
+}
+
+message Request {}
+
+message Response {
+    int32 number = 1;
+}
+

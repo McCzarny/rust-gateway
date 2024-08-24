@@ -1,0 +1,27 @@
+[package]
+name = "server_gateway"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "server"
+path = "src/server/main.rs"
+
+[[bin]]
+name = "gateway"
+path = "src/gateway/main.rs"
+
+
+[dependencies]
+tonic = "0.12.1"  # gRPC framework
+tokio = { version = "1", features = ["full"] }  # Async runtime
+warp = "0.3"  # HTTP server framework
+prost = "0.13.1"  # Protocol Buffers implementation
+serde = { version = "1", features = ["derive"] }  # Serialization
+serde_json = "1.0"  # JSON support
+rand = "0.8"  # Random number generation
+futures = "0.3"  # Async programming
+
+[build-dependencies]
+# Tonic build for generating Rust code from .proto files
+tonic-build = "0.12.1"
